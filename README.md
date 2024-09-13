@@ -76,9 +76,9 @@ You should also be able to access your Postgres Database at 'localhost:5432/post
    ```bash
    git clone https://github.com/abhishekgopalaiah/airflow-data-pipelines
    cd your-repo-name
+    ```
 
-
-2. Start Airflow on your local machine by running 'astro dev start'.
+2. Start Airflow on your local machine by running `astro dev start`.
 
 This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
 
@@ -94,3 +94,33 @@ Note: Running 'astro dev start' will start your project with the Airflow Webserv
 4. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
 
 You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+
+### Usefull commands:
+``` 
+astro dev start 
+astro dev restart
+astro dev restart --wait 5m
+
+astro dev bash
+airflow tasks test stock_market is_api_available 2024-09-09
+
+docker build . -t airflow/spark-worker
+docker build . -t airflow/spark-master
+
+
+git checkout -b feature/dev
+git add .
+git commit -m "commit msg"
+git push -u origin feature/dev
+
+API :https://query2.finance.yahoo.com/v8/finance/chart/aapl?metrics=high?&interval=1d&range=1y
+
+{
+  "endpoint":"v8/finance/chart/",
+  "headers": {
+  	"Content-Type":"application/json",
+    "User-Agent":"Mozilla/5.0"
+  }
+}
+
+```
