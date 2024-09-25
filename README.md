@@ -106,7 +106,10 @@ airflow tasks test stock_market is_api_available 2024-09-09
 
 docker build . -t airflow/spark-worker
 docker build . -t airflow/spark-master
+docker ps
+docker exec -it container_id_or_name bash
 
+docker build . -t airflow/spark-app
 
 git checkout -b feature/dev
 git add .
@@ -123,4 +126,9 @@ API :https://query2.finance.yahoo.com/v8/finance/chart/aapl?metrics=high?&interv
   }
 }
 
+minio
+
+{
+	"endpoint_url": "http://host.docker.internal:9000"
+}
 ```
